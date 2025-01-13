@@ -4,7 +4,7 @@ from django.db import models
 class table(models.Model):
   firstname = models.CharField(max_length=255)
   lastname = models.CharField(max_length=255)
-  image = models.ImageField(upload_to='media')
+  image = models.ImageField(upload_to='posts_Image/')
   email = models.CharField(max_length=50 , default='') 
 
   def __str__(self):
@@ -14,7 +14,7 @@ class table(models.Model):
 class posts(models.Model):
   title = models.CharField(max_length=255)
   des = models.CharField(max_length=255)
-  image = models.ImageField(upload_to='media') 
+  image = models.ImageField(upload_to='posts_Images/') 
 
   def __str__(self):
     return self.title

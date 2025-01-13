@@ -28,7 +28,19 @@
         <button type="submit">Register</button>
       </form>
 
-      
+      <div class="container-fluid" style="display: flex;">
+        {% for post in posts %}
+        <div class="card" style="width: 18rem;">
+          <img src="{{post.image.url}}" alt="Cultural Fest" class="event-image" />
+          <div class="card-body">
+            <h5 class="card-title">{{post.title}}</h5>
+            <p class="card-text">{{post.des}}</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+
+        {% endfor %}
+      </div>
     
 </body>
 </html>
