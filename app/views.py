@@ -26,3 +26,8 @@ def update(req, id):
         updatePost.save()
         return HttpResponse("update post")
     return render(req, 'app.html' , {"posts": post, "update": updatePost})
+
+def DeletePost(req, id):
+    post = get_object_or_404(posts , id=id)
+    post.delete()
+    return HttpResponse("the post id deleted")

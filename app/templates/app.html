@@ -36,6 +36,7 @@
             <h5 class="card-title">{{post.title}}</h5>
             <p class="card-text">{{post.des}}</p>
             <a href="{% url 'update'  post.id %}" class="btn btn-primary">update</a>
+            <a  href="{% url 'delete'  post.id %}" class="btn btn-danger mt-2">Delete</a>
           </div>
         </div>
         {% endfor %}
