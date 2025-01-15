@@ -13,15 +13,15 @@
         {% csrf_token %}
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Title</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1" name='title' >
+            <input type="text" class="form-control" id="exampleFormControlInput1" name='title' value="{{update.title}}" required>
           </div>
           <div class="mb-3">
             <label for="exampleFormControlTextarea1" class="form-label">Description:</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name='des'></textarea>
+            <input type="text" class="form-control" id="exampleFormControlInput1" name='des' value="{{update.des}}" required>
           </div>
           <div class="mb-3">
             <label for="exampleFormControlTextarea1" class="form-label">Image:</label>
-            <input type="file" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" name='image'>
+            <input type="file" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" name='image' value="{{update.image}}" required>
           </div>
   
         
@@ -35,7 +35,7 @@
           <div class="card-body">
             <h5 class="card-title">{{post.title}}</h5>
             <p class="card-text">{{post.des}}</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <a href="{% url 'update'  post.id %}" class="btn btn-primary">update</a>
           </div>
         </div>
         {% endfor %}
