@@ -22,5 +22,6 @@ from . import views
 urlpatterns = [
     path("", views.home, name='home'),
     path("<int:id>/", views.update, name="update"),
-    path("delete/<int:id>/", views.DeletePost , name="delete")
+    path("delete/<int:id>/", views.DeletePost , name="delete"),
+    path('register/' , views.createUser , name='register')
 ]

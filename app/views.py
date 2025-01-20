@@ -1,8 +1,29 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from .models import posts
+from django.contrib.auth.models import User
+from django.contrib import messages
 
 # Create your views here.
+
+def createUser(req):
+    if req.method == 'POST':
+        firstName = req.POST.get('firstName')
+        lastName = req.POST.get('lastName')
+        userName = req.POST.get('userName')
+        password1 = req.POST.get('password1')
+        password2 = req.POST.get('password2')
+        if password1 == password2:
+            user = User(password = password1, username = userName)
+            user.first_name = firstName
+            user.last_name = lastName
+            
+            user.save() 
+            return HttpResponse("User succesfully created")
+    return render(req, 'register.html' )
+
+
+
 
 def home(req):
     post = posts.objects.all()
