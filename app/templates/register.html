@@ -9,7 +9,9 @@
 </head>
 <body>
     <h1>User Registration form</h1>
-    <h2>{{massage}}</h2>
+    {% for message in messages %}
+    <p>{{message}}</p>
+    {% endfor %}
     <form method="post" class='container-fluid' enctype="multipart/form-data">
         {% csrf_token %}
         <div class="mb-3">

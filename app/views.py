@@ -14,11 +14,14 @@ def createUser(req):
         password1 = req.POST.get('password1')
         password2 = req.POST.get('password2')
         if password1 == password2:
-            user = User(password = password1, username = userName)
-            user.first_name = firstName
-            user.last_name = lastName
-            
-            user.save() 
+            if User.objects.filter(username=userName).exists():
+                messages.info(req, "user already exists")
+                return redirect("/register/")
+            else:
+                user = User(password = password1, username = userName)
+                user.first_name = firstName
+                user.last_name = lastName
+                user.save() 
             return HttpResponse("User succesfully created")
     return render(req, 'register.html' )
 
