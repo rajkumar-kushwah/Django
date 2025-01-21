@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from .models import posts
+from django.contrib.auth import login, authenticate
 from django.contrib.auth.models import User
 from django.contrib import messages
 
@@ -25,6 +26,15 @@ def createUser(req):
             return HttpResponse("User succesfully created")
     return render(req, 'register.html' )
 
+def userLogin(req):
+    if req.method == 'POST':
+        userName = req.POST.get('userName')
+        password1 = req.POST.get('password1')
+        user = authenticate(req, username = userName, password = password1)
+        if user is not None:
+            login(req, user)
+            return redirect(home)
+    return render(req, 'login.html')
 
 
 
