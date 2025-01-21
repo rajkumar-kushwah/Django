@@ -19,9 +19,12 @@ def createUser(req):
                 messages.info(req, "user already exists")
                 return redirect("/register/")
             else:
-                user = User(password = password1, username = userName)
-                user.first_name = firstName
-                user.last_name = lastName
+                user = User(
+                    username = userName,
+                    frist_name = firstName,
+                    last_name = lastName
+                    )
+                user.set_password(password1)
                 user.save() 
             return HttpResponse("User succesfully created")
     return render(req, 'register.html' )
