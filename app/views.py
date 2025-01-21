@@ -21,7 +21,7 @@ def createUser(req):
             else:
                 user = User(
                     username = userName,
-                    frist_name = firstName,
+                    first_name = firstName,
                     last_name = lastName
                     )
                 user.set_password(password1)
