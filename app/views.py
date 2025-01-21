@@ -26,15 +26,7 @@ def createUser(req):
             return HttpResponse("User succesfully created")
     return render(req, 'register.html' )
 
-def userLogin(req):
-    if req.method == 'POST':
-        userName = req.POST.get('userName')
-        password1 = req.POST.get('password1')
-        user = authenticate(req, username = userName, password = password1)
-        if user is not None:
-            login(req, user)
-            return redirect(home)
-    return render(req, 'login.html')
+
 
 
 
