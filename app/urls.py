@@ -24,4 +24,7 @@ urlpatterns = [
     path("<int:id>/", views.update, name="update"),
     path("delete/<int:id>/", views.DeletePost , name="delete"),
     path('register/' , views.createUser , name='register'),
+    path('login/' , views.userLogin , name='login'),
+    path('logout/' , views.userLogout , name='logout'),
+    
 ]
