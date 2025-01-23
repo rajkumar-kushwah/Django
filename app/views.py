@@ -6,6 +6,15 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 
 # Create your views here.
+from rest_framework.views import APIView
+from rest_framework import serializers, response
+
+class post_view(APIView):
+    def get(self, request):
+        post = posts.objects.all()
+        serializer = serializers(post, many=True)
+        return response(serializer.data)
+
 
 
 def createUser(req):
