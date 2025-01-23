@@ -7,6 +7,7 @@ from django.contrib import messages
 
 # Create your views here.
 
+
 def createUser(req):
     if req.method == 'POST':
         firstName = req.POST.get('firstName')
