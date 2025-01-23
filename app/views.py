@@ -42,7 +42,7 @@ def userLogin(req):
 def userLogout(req):
     if req.method == 'POST':
         logout(req)
-        return redirect('login')
+        return redirect('home')
     return render(req, 'logout.html')
 
 
