@@ -7,14 +7,46 @@ from django.contrib import messages
 
 # Create your views here.
 from rest_framework.views import APIView
-from rest_framework import serializers, response
+from rest_framework.response import Response
+from .serializers import postSerializer
+from rest_framework import status
 
 class post_view(APIView):
-    def get(self, request):
-        post = posts.objects.all()
-        serializer = serializers(post, many=True)
-        return response(serializer.data)
+    def get(self, request, pk = None):
+        if pk:  # If a primary key is provided
+            try:
+                post_instance = posts.objects.get(pk=pk)  # Fetch a specific post
+            except posts.DoesNotExist:
+                return Response({"error": "Post not found"}, status=status.HTTP_404_NOT_FOUND)
+            
+            serializer = postSerializer(post_instance)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        
+        # Otherwise, fetch all posts
+        post_queryset = posts.objects.all()
+        serializer = postSerializer(post_queryset, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    
+    # POST request ke liye
+    def post(self, request):
+        serializer = postSerializer(data=request.data)  # Incoming data serialize karein
+        if serializer.is_valid():  # Validation check karein
+            serializer.save()  # Valid data save karein
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+     # PUT: Update an existing post
+    def put(self, request, pk):
+        try:
+            post_instance = posts.objects.get(pk=pk)  # Retrieve the specific post
+        except posts.DoesNotExist:
+            return Response({"error": "Post not found"}, status=status.HTTP_404_NOT_FOUND)
 
+        serializer = postSerializer(post_instance, data=request.data)  # Bind incoming data to existing instance
+        if serializer.is_valid():
+            serializer.save()  # Save the updated data
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 def createUser(req):

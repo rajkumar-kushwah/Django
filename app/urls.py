@@ -26,5 +26,7 @@ urlpatterns = [
     path('register/' , views.createUser , name='register'),
     path('login/' , views.userLogin , name='login'),
     path('logout/' , views.userLogout , name='logout'),
+    path('posts/', views.post_view.as_view()),
+    path('posts/<int:pk>/', views.post_view.as_view()),
     
 ]
