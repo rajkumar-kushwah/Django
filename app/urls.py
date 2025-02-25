@@ -21,6 +21,11 @@ from . import views
 
 urlpatterns = [
     path("", views.home, name='home'),
+<<<<<<< Updated upstream
     path("<int:id>/", views.update, name="update"),
     path("delete/<int:id>/", views.DeletePost , name="delete")
+=======
+    path('<int:id>/',views.update, name='update' ),
+    path('<delete:id>/',views.delete, name='delete' ),
+>>>>>>> Stashed changes
 ]
