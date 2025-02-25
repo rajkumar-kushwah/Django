@@ -23,9 +23,19 @@ urlpatterns = [
     path("", views.home, name='home'),
 <<<<<<< Updated upstream
     path("<int:id>/", views.update, name="update"),
+<<<<<<< HEAD
     path("delete/<int:id>/", views.DeletePost , name="delete")
 =======
     path('<int:id>/',views.update, name='update' ),
     path('<delete:id>/',views.delete, name='delete' ),
 >>>>>>> Stashed changes
+=======
+    path("delete/<int:id>/", views.DeletePost , name="delete"),
+    path('register/' , views.createUser , name='register'),
+    path('login/' , views.userLogin , name='login'),
+    path('logout/' , views.userLogout , name='logout'),
+    path('posts/', views.post_view.as_view()),
+    path('posts/<int:pk>/', views.post_view.as_view()),
+    
+>>>>>>> 0f18fe3125d7880856d28776399958ddee4800bd
 ]
