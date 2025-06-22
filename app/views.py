@@ -118,12 +118,16 @@ def update(req,id):
     post = posts.objects.all()
     updatePost = get_object_or_404(posts,id = id)
     if req.method == 'POST':
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         updatePost.image = req.FILES.get('image')
         updatePost.title = req.POST.get('title')
         updatePost.des = req.POST.get('des')
         updatePost.save()
         return HttpResponse("update post")
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
     return render(req, 'app.html' , {"posts": post, "update": updatePost})
 
@@ -132,11 +136,17 @@ def DeletePost(req, id):
     post.delete()
     return HttpResponse("the post id deleted")
 =======
+=======
+>>>>>>> Stashed changes
     return render(req, 'app.html' ,{"posts": post, "update":updatePost})
 
 def delete(req , id):
     
     post=get_object_or_404(posts,id=id)
     post.delete()
+<<<<<<< Updated upstream
+    return HttpResponse(" the post deleted")
+>>>>>>> Stashed changes
+=======
     return HttpResponse(" the post deleted")
 >>>>>>> Stashed changes

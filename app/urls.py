@@ -22,6 +22,7 @@ from . import views
 urlpatterns = [
     path("", views.home, name='home'),
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     path("<int:id>/", views.update, name="update"),
 <<<<<<< HEAD
     path("delete/<int:id>/", views.DeletePost , name="delete")
@@ -38,4 +39,8 @@ urlpatterns = [
     path('posts/<int:pk>/', views.post_view.as_view()),
     
 >>>>>>> 0f18fe3125d7880856d28776399958ddee4800bd
+=======
+    path('<int:id>/',views.update, name='update' ),
+    path('<delete:id>/',views.delete, name='delete' ),
+>>>>>>> Stashed changes
 ]

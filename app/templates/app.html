@@ -21,6 +21,7 @@
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Title</label>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             <input type="text" class="form-control" id="exampleFormControlInput1" name='title' value="{{update.title}}" required>
           </div>
           <div class="mb-3">
@@ -30,6 +31,17 @@
           <div class="mb-3">
             <label for="exampleFormControlTextarea1" class="form-label">Image:</label>
             <input type="file" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" name='image' value="{{update.image}}" required>
+=======
+            <input type="text" class="form-control" id="exampleFormControlInput1" name='title' value="{{update.title}} " required>
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Description:</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name='des' value="{{update.des}}" required></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Image:</label>
+            <input type="file" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" name='image' required value="{{update.file}}">
+>>>>>>> Stashed changes
 =======
             <input type="text" class="form-control" id="exampleFormControlInput1" name='title' value="{{update.title}} " required>
           </div>
@@ -55,8 +67,13 @@
             <h5 class="card-title">{{post.title}}</h5>
             <p class="card-text">{{post.des}}</p>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             <a href="{% url 'update'  post.id %}" class="btn btn-primary">update</a>
             <a  href="{% url 'delete'  post.id %}" class="btn btn-danger mt-2">Delete</a>
+=======
+            <a href="{% url 'update' post.id %}" class="btn btn-primary" >update</a>
+            <a style="background-color: red; margin: 5px;" href="{% url 'delete' post.id %}" class="btn btn-primary" >delete</a>
+>>>>>>> Stashed changes
 =======
             <a href="{% url 'update' post.id %}" class="btn btn-primary" >update</a>
             <a style="background-color: red; margin: 5px;" href="{% url 'delete' post.id %}" class="btn btn-primary" >delete</a>
